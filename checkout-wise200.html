@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="credit-card.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Sofia+Sans:ital,wght@0,342;1,342&family=Varela+Round&display=swap" rel="stylesheet">
+    <title>Payment Page</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Hubot Sans", sans-serif;
+            background-color: #000000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            
+        }
+        .container {
+            background: #000000d2;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border: solid 1px rgb(16, 190, 0);
+        }
+        .section-title {
+            margin-bottom: 15px;
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+
+        /* Order Summary */
+        .order-summary input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #686868;
+            color: #fff;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        /* Payment Methods */
+        .payment-method {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .payment-option {
+            flex: 1;
+            background: #686868;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        }
+        .payment-option.selected {
+            background: #3b3b3b;
+            box-shadow: 0 0 10px #fff;
+            border: solid 1px rgb(16, 190, 0);
+        }
+        .payment-option:hover {
+            background: #333;
+        }
+        .payment-option img {
+            width: 40px;
+            margin-bottom: 10px;
+        }
+        .payment-option p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* Coupon Section */
+        .coupon {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .coupon input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 6px;
+            margin-right: 10px;
+            font-size: 1em;
+        }
+        .coupon button {
+            padding: 10px 20px;
+            background: #444;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+        .coupon button:hover {
+            background: #555;
+        }
+
+        /* Order Details */
+        .order-details {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .order-details p {
+            margin: 5px 0;
+        }
+
+        /* Pay Section */
+        .pay-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pay-button {
+            width: 100%;
+            padding: 15px;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .pay-button:hover {
+            background: #ddd;
+        }
+        .pay-section p {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #bbb;
+        }
+
+        /* Product Section */
+        .product-section {
+            margin-top: 20px;
+            background: #5a5a5a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .margine-top {
+            margin-top: 5px;
+        }
+
+        .imaged {
+            margin-top: 5px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Order Summary -->
+        <div class="section-title">Order Summary</div>
+        <div class="order-summary">
+            <label for="email">Email:</label>
+            <input type="email" id="display-email" readonly>
+            <p class="margine-top">• We’ll instantly deliver the product to this email address</p>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="section-title" style="margin-top: 20px;">Payment Method</div>
+        <div class="payment-method">
+            <div class="payment-option" id="paypal" onclick="selectPaymentMethod('paypal')">
+                <img src="paypal (1).png" alt="PayPal">
+                <p>PayPal F&F<br>€200.00</p>
+            </div>
+            <div class="payment-option" id="crypto" onclick="selectPaymentMethod('crypto')">
+                <img src="bitcoin.png" alt="Cryptocurrency">
+                <p>Cryptocurrency<br>€200.00</p>
+            </div>
+        </div>
+
+        <!-- Coupon Section -->
+        <div class="section-title" style="margin-top: 20px;">Coupon or Promo Code</div>
+        <div class="coupon">
+            <input type="text" placeholder="Enter a coupon or promo code">
+            <button>Apply</button>
+        </div>
+
+        <!-- Order Details -->
+        <div class="order-details">
+            <p>Subtotal: <strong>€200.00</strong></p>
+            <p>Total: <strong>€200.00</strong></p>
+        </div>
+
+        <!-- Pay Button -->
+        <div class="pay-section">
+            <button class="pay-button" onclick="proceedToPay()">Pay</button>
+            <p>By tapping "Pay", you agree to our Terms of Service and allow us to charge you for this payment.</p>
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-section">
+            <p><strong>GLOBAL WHITES</strong></p>
+            <p>1 item • Wise Account • Instant Email Delivery</p>
+            <img class="imaged" src="prod/wised.gif">
+        </div>
+    </div>
+
+    <script>
+        // Retrieve the email from localStorage
+        document.addEventListener("DOMContentLoaded", function () {
+            const email = localStorage.getItem("userEmail"); // Retrieve saved email
+            if (email) {
+                document.getElementById("display-email").value = email;
+            } else {
+                document.getElementById("display-email").value = "No email provided";
+            }
+        });
+    
+        let selectedPayment = null;
+    
+        function selectPaymentMethod(method) {
+            selectedPayment = method;
+    
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+    
+            document.getElementById(method).classList.add('selected');
+        }
+    
+        function proceedToPay() {
+            if (selectedPayment === 'paypal') {
+                window.location.href = "https://pp-payments.com/globalwhite-200";
+            } else if (selectedPayment === 'crypto') {
+                window.location.href = "https://coinpayment.online/globalwhite-200";
+            } else {
+                alert("Please select a payment method before proceeding.");
+            }
+        }
+    </script>
+</body>
+</html>

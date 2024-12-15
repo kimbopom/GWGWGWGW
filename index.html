@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0-beta3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+  <link rel="icon" type="image/x-icon" href="credit-card.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Sofia+Sans:ital,wght@0,342;1,342&family=Varela+Round&display=swap" rel="stylesheet">
+  <title>Global Whites ★ Shop</title>
+  <style>
+    body {
+        font-family: "Hubot Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-image: url("background.gif");
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      border-radius: 10px;
+      padding: 20px;
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffffe0;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-size: 40px;
+    }
+
+    .logo {
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .logo img {
+  height: 60px; /* Adjust height for the oval shape */
+  width: 100px; /* Adjust width for the oval shape */
+  border-radius: 50%; /* Ensures a smooth, rounded shape */
+  object-fit: cover; /* Ensures the image fits within the shape */
+  display: block; /* Centers image in flexbox */
+}
+
+.navbar {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: 500;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 2px rgb(30, 182, 0);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 40px; /* Adjust height as needed */
+  width: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Optional, for a circular logo */
+}
+
+.navbar-right {
+  display: flex;
+  gap: 15px; /* Spacing between links */
+}
+
+.navbar-right a {
+    color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+    .product-grid {
+      display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  justify-content: center; /* Center horizontally */
+  align-content: center; /* Center vertically */
+}
+
+.product-card {
+    background-color: rgba(0, 0, 0, 0.904);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none; /* Remove underline from product card */
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Adjust width based on column count */
+    padding: 0; /* Remove padding */
+
+}
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card h3 {
+      margin-bottom: 1px;
+      font-size: 25px;
+      color: #ffffff;
+      text-decoration: none; /* Remove underline from product name */
+    }
+
+    .product-card p {
+      color: #ffffffda;
+      text-decoration: none; /* Remove underline from product description */
+    }
+
+    .product-card .price {
+      
+      color: #ffffff;
+      font-size: 20px;
+      text-align: right;
+    }
+
+    .product-card img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 12px; /* Adjust border-radius to only round the top corners */
+    margin: 0; /* Remove margin */
+    border: solid 2px rgb(30, 182, 0);
+    display: block;
+    margin: 0 auto;
+}
+
+
+    .product-card button {
+      background-color: rgb(14, 14, 14);
+      border: solid 1px rgb(30, 182, 0);
+      color: #ffffff;
+      padding: 8px 100px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: 550;
+    }
+
+    .product-card button:hover {
+      background-color: rgba(17, 104, 0, 0.952);
+    }
+
+    @media screen and (max-width: 1050px) {
+
+      .container {
+        margin: 20px auto;
+        padding: 10px;
+      }
+
+
+      .product-grid {
+        grid-template-columns: repeat(1, 1fr)
+      }
+
+      .product-card img {
+        width: 80%;
+        height: auto;
+      }
+
+      .product-card h3 {
+        font-size: 40px;
+      }
+
+      .logo img {
+        max-width: 90%;
+        height: auto;
+      }
+
+      .product-card button {
+      background-color: rgb(15, 15, 15);
+      color: #ffffff;
+      border: solid 1px rgb(30, 182, 0);
+      padding: 9px 100px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 500;
+      }
+
+      .price-amount {
+        font-size: 30px;
+      }
+
+      .info {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (max-width: 860px) {
+
+.container {
+  margin: 20px auto;
+  padding: 10px;
+}
+
+
+.product-grid {
+    grid-template-columns: 1fr;
+  }
+
+.product-card img {
+  width: 60%;
+  height: auto;
+}
+
+.logo img {
+  max-width: 90%;
+  height: auto;
+}
+
+
+}
+
+
+a.marked {
+    background-color: rgba(43, 255, 0, 0.616);
+    color: black;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.stock-amount {
+    color: gray; /* Optional styling */
+}
+
+.price-amount {
+    color: rgb(92, 250, 0);
+}
+
+p.info {
+    color: gray;
+}
+
+.marginto {
+    margin-left: 10px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.telegram-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between image and text */
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.telegram-button:hover {
+    background-color: #444;
+}
+
+.telegram-logo {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    object-fit: contain;
+}
+
+.green {
+  color: #5cfa00;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 70px;
+  border-radius: 20px;
+  border: solid 1px #5cfa00;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  max-width: 50%;
+}
+
+.footer-left .brand-name {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.footer-left .tagline {
+  margin: 10px 0;
+  font-size: 19px;
+}
+
+.footer-left .copyright {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-links ul, .social-links ul {
+  list-style: none;
+}
+
+.footer-links a, .social-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer-links, .social-links {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.footer-links a:hover, .social-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-section-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.white-teles {
+  max-width: 19px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <center>
+        <div class="navbar">
+            <div class="navbar-left">
+              <img src="logo.jpg" alt="Logo" class="navbar-logo" />
+            </div>
+            Global Whites
+            <div class="navbar-right">
+              <a href="index.html" class="marked">Home</a>
+              <a href="products.html">Products</a>
+              <a href="reviews.html">Reviews</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>       
+    </center>
+  
+  
+  <h1 id="onsale">#1 🇪🇺 Cards Supplier</h1>
+
+  <div class="center-container">
+    <a href="https://t.me/GlobalWht" class="telegram-button">
+        <img src="icon-tele.png" alt="Telegram Logo" class="telegram-logo"> Telegram
+    </a>
+</div>
+
+<div class="center-container">
+<h1 class="green">5.00 <img src="star-icon1.png"></h1>
+</div>
+
+<div class="center-container">
+  <h1>Products</h1>
+  </div>
+
+    <div class="product-grid">
+        <a href="wise-accounts.html" class="product-card">
+            <img src="prod/wised.gif" alt="Product 1">
+            <div class="marginto">
+            <h3 class="bigname">Wise Accounts</h3>
+            <p class="info">TransferWise Accounts with balance.</p>
+            <p class="price">
+                <span class="price-amount">€ 100.00</span>
+                <span class="stock-amount">IN STOCK ✔</span>
+            </p>
+        </div>    
+            <button>Purchase</button>
+          </a>
+          
+          <a href="physical-cards.html" class="product-card">
+            <img src="prod/cloned.gif" alt="Product 2">
+            <div class="marginto">
+            <h3 class="bigname">Physical Cards</h3>
+            <p class="info">Physical duplicates cards with balances.</p>
+            <p class="price">
+                <span class="price-amount">€ 100.00</span>
+                <span class="stock-amount">IN STOCK ✔</span>
+            </p>
+        </div>     
+            <button>Purchase</button>
+          </a>
+
+      <a href="virtual-cards.html" class="product-card">
+        <img src="prod/virtual.gif" alt="Product 3">
+        <div class="marginto">
+        <h3 class="bigname">Virtual Cards</h3>
+        <p class="info">Virtual Credit cards for online, apple pay, google pay.</p>
+        <p class="price">
+            <span class="price-amount">€ 100.00</span>
+            <span class="stock-amount">IN STOCK ✔</span>
+        </p>
+    </div>    
+        <button>Purchase</button>
+      </a>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-left">
+            <h2 class="brand-name">Global Whites</h2>
+            <p class="tagline">HIGHEST QUALITY CARDS SHOP IN EUROPE.</p>
+            <p class="copyright">GlobalWhites © 2024-2025</p>
+            <p class="copyright">Powered By Sellix</p>
+          </div>
+          <div class="footer-right">
+            <div class="footer-links">
+              <h3 class="footer-section-title">TABS</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+              </ul>
+            </div>
+            <div class="social-links">
+              <h3 class="footer-section-title">SOCIAL</h3>
+              <ul>
+                <li><a href="https://t.me/GlobalWht"><img class="white-teles" src="white-tele.png"> Telegram</a></li>
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </footer>
+      
+      
+
+  </div>
+
+
+</body>
+</html>
